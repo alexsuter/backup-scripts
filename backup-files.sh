@@ -22,7 +22,7 @@ tar -czPf "${backupfile}" "${backupfolder_from}"
 
 # Delete a number of old backups
 if [ ${countsave} != "0" ]; then
-    echo "delete files all files older than ${countsave} days"
+    echo "delete all files older than ${countsave} days"
 	find ${backupfolder_to} -name "backup*" -mtime +${countsave} -exec rm {} \;
 fi
 
