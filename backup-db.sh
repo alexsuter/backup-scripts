@@ -27,7 +27,7 @@ echo "create mysql dump ${dbname} to ${backupfile}"
 
 # Delete a number of old backups
 if [ ${countsave} != "0" ]; then
-    echo "delete files all files older than ${countsave} days"
+    echo "delete all files older than ${countsave} days"
     find ${backupfolder} -name "backup*" -mtime +${countsave} -exec rm {} \;
 fi
 
