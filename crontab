@@ -1,0 +1,15 @@
+# Create dumps & archives
+30 1 * * * /home/user/script/db-backup.sh sampledb /home/user/backup/sample-db-daily 30 >>/home/user/log/cronjobs.log
+40 1 1 * * /home/user/script/files-backup.sh /home/user/www/sample /home/user/backup/sample-files-monthly 0 >>/home/user/log/cronjobs.log
+
+# Pull directories
+/usr/bin/rsync -a --delete user@source.host:/home/user/backup /var/backup
+
+# Pull with processing infos
+/usr/bin/rsync -aP --delete user@source.host:/home/user/backup /var/backup
+
+# Pull without deletion of files
+/usr/bin/rsync -a user@source.host:/home/user/backup /var/backup
+
+# Pull without do anything just output what he will do
+/usr/bin/rsync -aP --dry-run --delete user@source.host:/home/user/backup /var/backup
