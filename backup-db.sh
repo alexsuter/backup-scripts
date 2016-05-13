@@ -6,9 +6,9 @@
 # Param 3 = count of days, how many backup to holds
 
 # Constants
-dbuser=backup
-dbpw=a4uZee3
-dbhost=localhost
+dbuser=?
+dbpw=?
+dbhost=?
 
 # Read Parameter
 dbname=$1
