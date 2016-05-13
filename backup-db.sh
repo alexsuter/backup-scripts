@@ -1,4 +1,3 @@
-# MySQL-DB Backup Script
 # Version 1.0
 # Alex Suter
 
@@ -7,9 +6,9 @@
 # Param 3 = count of days, how many backup to holds
 
 # Constants
-dbuser=<PARAMUSER>
-dbpw=<PARAMPW>
-dbhost=<PARAMHOST>
+dbuser=backup
+dbpw=a4uZee3
+dbhost=localhost
 
 # Read Parameter
 dbname=$1
@@ -23,7 +22,7 @@ backupfile=${backupfolder}/${filename}
 
 # Dump
 echo "create mysql dump ${dbname} to ${backupfile}"
-/usr/local/bin/mysqldump --quick --quote-names --single-transaction --user=${dbuser} --password=${dbpw} --host=${dbhost} --default-character-set=utf8 ${dbname} | gzip > ${backupfile}
+/usr/bin/mysqldump --quick --quote-names --routines --single-transaction --user=${dbuser} --password=${dbpw} --host=${dbhost} --default-character-set=utf8 ${dbname} | gzip > ${backupfile}
 
 # Delete a number of old backups
 if [ ${countsave} != "0" ]; then
